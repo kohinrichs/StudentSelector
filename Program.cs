@@ -44,7 +44,9 @@ namespace StudentSelector
             var random = new Random();
             List<int> Indexes = new List<int>();
 
+            //chooses a candidate at random
             var candidate = random.Next(0, Students.Length);
+
             List<int> AlreadyCalledOn = new List<int>();
 
             while (Indexes.Count < 1)
@@ -53,9 +55,6 @@ namespace StudentSelector
                 if (!Indexes.Contains(candidate))
                 {
                     Indexes.Add(candidate);
-                }
-                if (Indexes.Contains(candidate))
-                {
                     AlreadyCalledOn.Add(candidate);
                 }
 
@@ -69,6 +68,7 @@ namespace StudentSelector
 
             var candidateString = String.Join(", ", Indexes);
             var AlreadyCalledOnString = String.Join(" ,", AlreadyCalledOn);
+
             Console.WriteLine(candidateString);
             Console.WriteLine(AlreadyCalledOnString);
         }
