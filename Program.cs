@@ -41,7 +41,7 @@ namespace StudentSelector
             };
             //creates a list of index values
             List<int> Indexes = new List<int>();
-            while (Indexes.Count < 3)
+            while (Indexes.Count < 1)
             {
                 var random = new Random();
                 int candidate = random.Next(Students.Length);
