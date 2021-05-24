@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace StudentSelector
 {
@@ -40,15 +41,24 @@ namespace StudentSelector
                 "Dakota Upchurch"
             };
             //creates a list of index values
+            var random = new Random();
             List<int> Indexes = new List<int>();
+
+            var candidate = random.Next(0, Students.Length);
+            List<int> AlreadyCalledOn = new List<int>();
+
             while (Indexes.Count < 1)
             {
-                var random = new Random();
-                int candidate = random.Next(Students.Length);
+
                 if (!Indexes.Contains(candidate))
                 {
                     Indexes.Add(candidate);
                 }
+                if (Indexes.Contains(candidate))
+                {
+                    AlreadyCalledOn.Add(candidate);
+                }
+
             }
 
             for (int i = 0; i < Indexes.Count; i++)
@@ -56,6 +66,9 @@ namespace StudentSelector
                 int index = Indexes[i];
                 Console.WriteLine(Students[index]);
             }
+
+            Console.WriteLine(Indexes);
+            Console.WriteLine(AlreadyCalledOn);
         }
     }
 }
