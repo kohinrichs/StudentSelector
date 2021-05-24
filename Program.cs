@@ -67,8 +67,10 @@ namespace StudentSelector
                 Console.WriteLine(Students[index]);
             }
 
-            Console.WriteLine(Indexes);
-            Console.WriteLine(AlreadyCalledOn);
+            var candidateString = String.Join(", ", Indexes);
+            var AlreadyCalledOnString = String.Join(" ,", AlreadyCalledOn);
+            Console.WriteLine(candidateString);
+            Console.WriteLine(AlreadyCalledOnString);
         }
     }
 }
