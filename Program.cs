@@ -8,7 +8,7 @@ namespace StudentSelector
     {
         static void Main(string[] args)
         {
-            string[] Students =
+            List<string> Students1 = new List<string>()
            {
                "Chad Clark",
                 "Micaela Colpi",
@@ -44,11 +44,13 @@ namespace StudentSelector
             var random = new Random();
             List<int> Indexes = new List<int>();
 
-            //chooses a candidate at random
-            var candidate = random.Next(0, Students.Length);
+            //creates a randomizer for candidates
+            var candidate = random.Next(0, Students1.Count);
 
+            //create a list of students who have been called on
             List<int> AlreadyCalledOn = new List<int>();
 
+            //
             while (Indexes.Count < 1)
             {
 
@@ -59,11 +61,11 @@ namespace StudentSelector
                 }
 
             }
-
+            //selects a candidate at random
             for (int i = 0; i < Indexes.Count; i++)
             {
                 int index = Indexes[i];
-                Console.WriteLine(Students[index]);
+                Console.WriteLine(Students1[index]);
             }
 
             var candidateString = String.Join(", ", Indexes);
@@ -71,6 +73,8 @@ namespace StudentSelector
 
             Console.WriteLine(candidateString);
             Console.WriteLine(AlreadyCalledOnString);
+
+
         }
     }
 }
