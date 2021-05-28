@@ -41,24 +41,21 @@ namespace StudentSelector
                 "Dakota Upchurch"
             };
 
-            List<string> notCalledOn = new List<string>(Students1);
-
-            Console.WriteLine("You Have NOT Called On: ");
-            // var notCalledOnString = String.Join(" ,", notCalledOn);
-            Console.WriteLine(String.Join(" ,", notCalledOn));
-
-            Console.WriteLine("Press any key to continue");
-            Console.ReadLine();
-
-            //create a list of students who have been called on
-            List<string> alreadyCalledOn = new List<string>();
-
             CallOnStudents();
-
-            Again();
 
             void CallOnStudents()
             {
+                List<string> notCalledOn = new List<string>(Students1);
+
+                //create a list of students who have been called on
+                List<string> alreadyCalledOn = new List<string>();
+
+                Console.WriteLine("You Have NOT Called On: ");
+                Console.WriteLine(String.Join(", ", notCalledOn));
+
+                Console.WriteLine("Press any key to continue");
+                Console.ReadLine();
+
                 while (alreadyCalledOn.Count < Students1.Count)
                 {
                     var random = new Random();
@@ -69,24 +66,20 @@ namespace StudentSelector
                         alreadyCalledOn.Add(Students1[candidate]);
                         notCalledOn.Remove(Students1[candidate]);
 
-
-                        var candidateString = String.Join(", ", Students1[candidate]);
-                        var notCalledOnString = String.Join(" ,", notCalledOn);
-                        var alreadyCalledOnString = String.Join(" ,", alreadyCalledOn);
-
-
                         Console.Write("Up Next: ");
-                        Console.WriteLine(candidateString);
+                        Console.WriteLine(String.Join(", ", Students1[candidate]));
 
                         Console.WriteLine("You Have NOT Called On: ");
-                        Console.WriteLine(notCalledOnString);
+                        Console.WriteLine(String.Join(", ", notCalledOn));
                         Console.WriteLine("You've Already Called On: ");
-                        Console.WriteLine(alreadyCalledOnString);
+                        Console.WriteLine(String.Join(", ", alreadyCalledOn));
 
                         Console.WriteLine("Press any key to continue");
                         Console.ReadLine();
                     }
                 }
+                
+                Again();
             }
 
             void Again()
@@ -103,6 +96,9 @@ namespace StudentSelector
 
                 if (answer == "y")
                 {
+                    List<string> notCalledOn = new List<string>(Students1);
+                    List<string> alreadyCalledOn = new List<string>();
+
                     CallOnStudents();
                 }
                 else
