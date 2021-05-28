@@ -57,6 +57,7 @@ namespace StudentSelector
                 if (!Indexes.Contains(candidate))
                 {
                     Indexes.Add(candidate);
+                    //do insert instead of add?
                     AlreadyCalledOn.Add(candidate);
                 }
 
